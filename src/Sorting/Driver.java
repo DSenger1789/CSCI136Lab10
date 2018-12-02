@@ -43,6 +43,8 @@ public class Driver {
 		wordCount wordcount = new wordCount(word, counta);
 
 		ArrayList<wordCount> wordArray = new ArrayList<wordCount>();
+		ArrayList<wordCount> temp = new ArrayList<wordCount>();
+
 
 		/*
 		 * public void addWord(wordCount wordArray) { if (wordcount == null) { throw new
@@ -107,13 +109,17 @@ public class Driver {
 			newerFile1[b] = newerFile1[b].trim();
 			word = file1.get(b);
 			wordcount.setWord(word);
-
+			counta = 1;
+			wordcount.setCount(counta);
+			temp.add(wordcount);
+			
+			
 			wordCount topten = new wordCount(word, counta);
-			wordArray.add(topten);
-
-			for (int i = 0; i < wordArray.size(); i++) {
+			counta++;
+			
+			for (int i = 0; i < temp.size(); i++) {
+				wordArray.add(topten);
 				if (word.equals(wordArray.get(b).getWord())) {
-					counta++;
 					topten.setWord(word);
 					topten.setCount(counta);
 
@@ -140,7 +146,6 @@ public class Driver {
 	
 					}
 
-				} else {
 				}
 			}
 		}
